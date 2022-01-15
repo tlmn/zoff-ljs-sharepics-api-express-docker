@@ -11,7 +11,6 @@ app.post("/", async (request, response) => {
   const { body: SVGContent } = request;
 
   try {
-    console.log(request);
     const browser = await puppeteer.launch({
       args: ["--no-sandbox"],
       defaultViewport: {
@@ -38,7 +37,7 @@ app.post("/", async (request, response) => {
   }
 });
 
-var listener = app.listen(3000, function () {
+var listener = app.listen(80, function () {
   console.log("Screenshotter is listening on port " + listener.address().port);
 });
 
