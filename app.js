@@ -9,9 +9,9 @@ app.use(bodyParser.text({ limit: "5mb" }));
 
 app.post("/", async (request, response) => {
   const { body: SVGContent } = request;
-
   try {
     const browser = await puppeteer.launch({
+      executablePath: '/usr/bin/google-chrome-stable',
       args: ["--no-sandbox"],
       defaultViewport: {
         width: 1080,
@@ -19,7 +19,6 @@ app.post("/", async (request, response) => {
         deviceScaleFactor: 2,
       },
     });
-
     const page = await browser.newPage();
 
     await page.setContent(SVGContent);
