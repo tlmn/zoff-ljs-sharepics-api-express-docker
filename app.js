@@ -36,7 +36,7 @@ app.post("/", async (request, response) => {
   }
 });
 
-var listener = app.listen(80, function () {
+var listener = app.listen(3000, function () {
   console.log("Screenshotter is listening on port " + listener.address().port);
 });
 
